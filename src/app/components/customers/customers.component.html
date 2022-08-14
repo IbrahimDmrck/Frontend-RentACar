@@ -1,0 +1,22 @@
+<div *ngIf="dataLoaded==false" class="text-center">
+    <div class="spinner-grow" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+<table *ngIf="dataLoaded==true" class="table table-hover text-center">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th>İsim</th>
+            <th>Soyİsim</th>
+            <th>Şirket Adı</th>
+        </tr>
+    </thead>
+    <tbody class="bg-secondary">
+        <tr *ngFor="let customer of customers ">
+            <td>{{customer.id}}</td>
+            <td>{{customer.userId}}</td>
+            <td>{{customer.companyName}}</td>
+        </tr>
+    </tbody>
+</table>

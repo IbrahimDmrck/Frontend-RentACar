@@ -1,0 +1,13 @@
+<div *ngIf="dataLoaded==false" class="text-center">
+    <div class="spinner-grow" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+<ul *ngIf="dataLoaded==true" class="list-group bg-success p-2 text-dark bg-opacity-50">
+    <li *ngFor="let brand of brands" class="list-group-item bg-success p-2 text-white bg-opacity-75">
+        <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+        <label class="form-check-label" for="firstCheckbox">{{brand.brandName}}</label>
+    </li>
+
+</ul>
