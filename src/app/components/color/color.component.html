@@ -3,14 +3,13 @@
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
+  <ul *ngIf="dataLoaded==true" class="list-group bg-primary p-2 text-dark bg-opacity-50">
+    <span class="bg-white text-center">Renk</span>
+    <li *ngFor="let color of colors" class="list-group-item bg-primary p-2 text-white bg-opacity-75">
+        <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+        <label class="form-check-label" for="firstCheckbox">{{color.colorName}}</label>
+    </li>
 
-<table *ngIf="dataLoaded==true" class="table table-hover text-center">
-    <thead>
-        <th>Renk</th>
-    </thead>
-    <tbody class="bg-dark p-2 text-white bg-opacity-80">
-        <tr *ngFor="let color of colors">
-            <td>{{color.colorName}}</td>
-        </tr>
-    </tbody>
-</table>
+</ul>
+
+

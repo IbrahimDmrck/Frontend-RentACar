@@ -7,19 +7,17 @@
 
 <table *ngIf="dataLoaded==true"  class="table table-hover text-center">
     <thead class="bg-secondary">
-        <th>ID</th>
-        <th>Araba</th>
         <th>Müşteri</th>
+        <th>Araç-Markası</th>
         <th>Kiralama-Tarihi</th>
         <th>Araç-İade-Tarihi</th>
     </thead>
-    <tbody class="bg-dark p-2 text-white bg-opacity-70">
-        <tr *ngFor="let rental of rentals">
-            <td>{{rental.id}}</td>
-            <td>{{rental.carId}}</td>
-            <td>{{rental.customerId}}</td>
-            <td>{{rental.rentDate}}</td>
-            <td>{{rental.returnDate}}</td>
+    <tbody class="bg-warning p-2 text-dark bg-opacity-50">
+        <tr *ngFor="let rentalDetail of rentalDetails">
+            <td>{{rentalDetail.customerName}}</td>
+            <td>{{rentalDetail.brandName}}</td>
+            <td>{{rentalDetail.rentDate}}</td>
+            <td>{{rentalDetail.returnDate}}</td>
         </tr>
     </tbody> 
 </table>

@@ -12,11 +12,11 @@
             <th>Şirket Adı</th>
         </tr>
     </thead>
-    <tbody class="bg-secondary">
-        <tr *ngFor="let customer of customers ">
-            <td>{{customer.id}}</td>
-            <td>{{customer.userId}}</td>
-            <td>{{customer.companyName}}</td>
+    <tbody class="bg-primary bg-opacity-50">
+        <tr *ngFor="let customerDetail of customersDetails ">
+            <td>{{customerDetail.firstName}}</td>
+            <td>{{customerDetail.lastName}}</td>
+            <td>{{customerDetail.companyName}}</td>
         </tr>
     </tbody>
 </table>
