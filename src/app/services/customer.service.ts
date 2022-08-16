@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CustomerDetailDtoResponseModel } from '../models/customerDetailDtoResponseModel ';
-import { CustomerResponseModel } from '../models/customerResponseModel';
+import { Customer } from '../models/customer';
+import { CustomerDetailDto } from '../models/customerDetailDto';
+import { ListResponseModel } from '../models/listResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ urlCustomerDetail="https://localhost:44313/api/Customers/getcustomerdetail";
 
   constructor(private httpClient:HttpClient) { }
 
-  getCustomers():Observable<CustomerResponseModel>{
-    return this.httpClient.get<CustomerResponseModel>(this.urlCustomerGetAll);
+  getCustomers():Observable<ListResponseModel<Customer>>{
+    return this.httpClient.get<ListResponseModel<Customer>>(this.urlCustomerGetAll);
   }
 
-  getCustomerDetail():Observable<CustomerDetailDtoResponseModel>{
-    return this.httpClient.get<CustomerDetailDtoResponseModel>(this.urlCustomerDetail);
+  getCustomerDetail():Observable<ListResponseModel<CustomerDetailDto>>{
+    return this.httpClient.get<ListResponseModel<CustomerDetailDto>>(this.urlCustomerDetail);
   }
 }

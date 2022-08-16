@@ -1,13 +1,13 @@
 <app-navi></app-navi>
 <div class="container-fluid">
     <div class="row">
-            <div class="col-md-2">
+            <div style="height:600px;overflow:auto;" class="col-md-2 ">
                 <app-brand></app-brand>
                 <br>
                 <app-color></app-color>
             </div>
         <div class="col-md-10">
-            <app-car></app-car>
+            <router-outlet></router-outlet>
             <app-customers></app-customers>
             <app-rental></app-rental>
         </div>
@@ -15,4 +15,3 @@
     </div>
 
 </div>
-<router-outlet></router-outlet>

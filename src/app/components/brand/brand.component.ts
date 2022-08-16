@@ -10,7 +10,9 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandComponent implements OnInit {
 
    brands:Brand[] = [];
- dataLoaded=false;
+   currentBrand:Brand;
+
+   dataLoaded=false;
 
   constructor(private brandService:BrandService ) { }
 
@@ -23,6 +25,14 @@ export class BrandComponent implements OnInit {
       this.brands=response.data
       this.dataLoaded=true;
     })
+  }
+
+  setCurrentBrand(brand:Brand){
+    this.currentBrand=brand;
+  }
+
+  getCurrentBrand(brand:Brand){
+    return (this.currentBrand==brand)? 'checked': '';
   }
 
 }

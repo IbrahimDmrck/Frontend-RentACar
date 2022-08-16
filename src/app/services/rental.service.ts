@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RentalDetailDtoResponseModel } from '../models/rentalDetailDtoResponseModel';
-import { RentalResponseModel } from '../models/rentalResponseModel ';
+import { ListResponseModel } from '../models/listResponseModel';
+import { Rental } from '../models/rental';
+import { RentalDetailDto } from '../models/rentalDetailDto';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +15,12 @@ urlRentalDetail="https://localhost:44313/api/Rentals/getrentaldetail";
                 
   constructor(private httpClient:HttpClient) { }
 
-  getRentals():Observable<RentalResponseModel>{
-    return this.httpClient.get<RentalResponseModel>(this.urlRentalGetAll);
+  getRentals():Observable<ListResponseModel<Rental>>{
+    return this.httpClient.get<ListResponseModel<Rental>>(this.urlRentalGetAll);
   }
 
-  getRentalDetail():Observable<RentalDetailDtoResponseModel>{
-    return this.httpClient.get<RentalDetailDtoResponseModel>(this.urlRentalDetail);
+  getRentalDetail():Observable<ListResponseModel<RentalDetailDto>>{
+    return this.httpClient.get<ListResponseModel<RentalDetailDto>>(this.urlRentalDetail);
   }
 
 }
