@@ -4,11 +4,10 @@
     </div>
   </div>
 
-<ul *ngIf="dataLoaded==true" class="list-group bg-success p-2 text-dark bg-opacity-50">
-  <span class="bg-white text-center">Marka</span>
-    <li *ngFor="let brand of brands" class="list-group-item  bg-success p-2 text-white bg-opacity-75">
-        <input (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}" [checked]="getCurrentBrand(brand)" class="form-check-input  me-1" type="checkbox"  id="firstCheckbox">
-        <label class="form-check-label" for="firstCheckbox">{{brand.brandName}}</label>
-    </li>
-
+<ul class="list-group">
+  <button (click)="reset()" [class]="getListAllBrands()" routerLink="/cars" class="btn btn-outline-primary bg-warning">Tüm Ürünleri Gör</button>
+  <li  class="list-group-item"(click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}" 
+   [class]="getCurrentBrand(brand)" *ngFor="let brand of brands">   {{brand.brandName}}</li>
 </ul>
+
+

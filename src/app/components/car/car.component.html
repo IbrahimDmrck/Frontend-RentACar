@@ -4,27 +4,33 @@
     </div>
   </div>
 
-<table *ngIf="dataLoaded==true" class="table table-hover text-center ">
+
+  <table *ngIf="dataLoaded==true" class="table table-hover text-center align-middle  ">
     <thead class="bg-info p-2 text-dark bg-opacity-25">
 
+        <th>Fotoğraf</th>
         <th>Araç-Adı</th>
         <th>Marka</th>
         <th>Renk</th>
         <th>Günlük-Ücret</th>   
-        <!-- <th>Fotoğraf</th> -->
+        <th>Araç-Tipi</th>  
         <th>Model-Yılı</th>
         <th>Açıklama</th>
     </thead>
     <tbody class="bg-success p-2 text-dark bg-opacity-50">
-        <tr *ngFor="let carDetailDto of carDetailDtos">
-            <td>{{carDetailDto.carName}}</td>
-            <td>{{carDetailDto.brandName}}</td>
-            <td>{{carDetailDto.colorName}}</td>
-            <td>{{carDetailDto.dailyPrice}}</td>
-            <!-- <td>{{carDetailDto.imagePath}}</td> -->
-            <!-- <td>{{carDetailDto.typeOfVehicle}}</td>  -->
-            <td>{{carDetailDto.modelYear}}</td>
+      
+        <tr style="height:100px ;"  *ngFor="let carDetailDto of carDetailDtos" >
+          <td  style="width: 190px;border-right: 2px solid white;" class="rounded-2" > <img  [src]="getImage(carDetailDto)" width="190px" height="100px" > </td> 
+            <td style="border-right: 2px solid white;" class="rounded-2"><button routerLink="/car-detail/{{carDetailDto.carId}}" class="btn btn-outline-secondary text-dark">{{carDetailDto.carName}}</button></td>
+            <td style="border-right: 2px solid white;" class="rounded-2">{{carDetailDto.brandName}}</td>
+            <td style="border-right: 2px solid white;" class="rounded-2">{{carDetailDto.colorName}}</td>
+            <td style="border-right: 2px solid white;" class="rounded-2">{{carDetailDto.dailyPrice}}.₺</td>
+            <td style="border-right: 2px solid white;" class="rounded-2">{{carDetailDto.typeOfVehicle}}  </td>
+            <td style="border-right: 2px solid white;" class="rounded-2">{{carDetailDto.modelYear}}</td>
             <td>{{carDetailDto.description}}</td>
         </tr>
     </tbody>
 </table> 
+
+
+

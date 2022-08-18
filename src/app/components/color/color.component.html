@@ -2,14 +2,20 @@
     <div class="spinner-grow" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
-  </div>
-  <ul *ngIf="dataLoaded==true" class="list-group bg-primary p-2 text-dark bg-opacity-50">
-    <span class="bg-white text-center">Renk</span>
-    <li *ngFor="let color of colors" class="list-group-item bg-primary p-2 text-white bg-opacity-75">
-        <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
-        <label class="form-check-label" for="firstCheckbox">{{color.colorName}}</label>
-    </li>
+</div>
+<!-- <ul class="list-group">
+  <button (click)="reset()" [class]="getListAllColors()" routerLink="/cars" class="btn btn-outline-primary bg-warning">Tüm Ürünleri Gör</button>
+  <li  class="list-group-item"(click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}" 
+  [class]="getCurrentColor(color)" *ngFor="let color of colors">  {{color.colorName}}</li> 
+</ul> -->
 
+
+<ul class="list-group">
+  <button (click)="reset()" [class]="getListAllColors()" routerLink="/cars" class="btn btn-outline-primary bg-warning">Tüm Renkleri Gör</button>
+  <li  class="list-group-item"(click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}" 
+   [class]="getCurrentColor(color)" *ngFor="let color of colors">   {{color.colorName}}</li>
 </ul>
+
+
 
 
