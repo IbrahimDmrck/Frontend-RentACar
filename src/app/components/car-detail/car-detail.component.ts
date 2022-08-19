@@ -26,8 +26,8 @@ export class CarDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       if (params["carId"]) {
 
-       // this.getCarImagesByCarId(params["carId"]);
         this.getCarDetailsByCarId(params["carId"]);
+        this.getCarImage(params["carId"]);
 
       } 
     })
@@ -50,7 +50,12 @@ export class CarDetailComponent implements OnInit {
   
   }
 
-
+getCarImage(carId:number){
+  this.carImageService.getCarImagesByCarId(carId).subscribe(response=>{
+    this.carImages=response.data
+  })
+// return  "https://localhost:44313/Uploads/Images/"+carImage.imagePath
+}
 
   getCarImagesByCarId(carId:number){
     this.carService.getCarImagesByCarId(carId).subscribe(response=>{
