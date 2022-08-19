@@ -12,11 +12,8 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./car-detail.component.css']
 })
 export class CarDetailComponent implements OnInit {
-dataLoaded=false
+  dataLoaded=false
   carDetails:CarDetailDto[]=[];
-  // imagePath:string[];
-  // carDetailDto:CarDetailDto[]=[]
-  // carImages:CarImage[]
   currentCar: CarDetailDto;
   carImages:CarImage[]=[]
 
@@ -45,15 +42,7 @@ dataLoaded=false
     })
   }
 
-  // getCarDetailsByCarId(carId:number){
-  //   this.carService.getCarDetailsByCarId(carId).subscribe((response)=>{
-  //     this.carDetailDto=response.data;
-  //     this.carDetailDto = response.data[0]
-  //     this.carImage=this.carDetailDto.carImages;
-  //     this.dataLoaded = true;
 
-  //   })
-  // }
 
   getImage(carImage:CarDetailDto){
     console.log(carImage);
@@ -61,11 +50,7 @@ dataLoaded=false
   
   }
 
-  // getCarImagesByCarId(carId:number){
-  //   this.carImageService.getCarImagesByCarId(carId).subscribe(repsonse=>{
-  //     this.carImages=repsonse.data
-  //   })
-  // }
+
 
   getCarImagesByCarId(carId:number){
     this.carService.getCarImagesByCarId(carId).subscribe(response=>{

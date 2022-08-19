@@ -24,7 +24,7 @@
             </div>
          
       </div>
-      <div style="background-color: rgb(245, 245, 245);" class="col-4 h-75">
+      <div style="background-color: rgb(245, 245, 245);" class="col-4 ">
           <hr>
           <label><b>Marka :</b></label>{{carDetail.brandName}}
           <hr>
@@ -41,9 +41,15 @@
           <label><b>Günlük Kiralama Ücreti :</b></label>{{carDetail.dailyPrice}}.₺
           <hr>
 
-        <label >Kiralanacak gün veya günleri seçin : <input class="form-control " type="datetime-local" name="" id=""></label> 
-         <br>
-         <button style="margin-top: 5px;" class="btn btn-outline-success">Kirala</button> <button style="margin-left:10px ;margin-top:5px;" routerLink="/cars" class="btn btn-outline-warning text-dark">Başka Araç Seç</button>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>Kiralama Başlangıcı :<input class="" type="datetime-local" name="" id=""></td>
+              <td>Kiralama Bitişi : <input  type="datetime-local" name="" id=""> </td>
+            </tr>
+          </tbody>
+        </table>
+         <button  class="btn btn-outline-success">Kirala</button> <button style="margin-left:10px ;" routerLink="/cars" class="btn btn-outline-warning text-dark">Başka Araç Seç</button>
          
          
 
