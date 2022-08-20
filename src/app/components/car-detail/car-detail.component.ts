@@ -13,22 +13,22 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarDetailComponent implements OnInit {
   dataLoaded=false
-  carDetails:CarDetailDto[]=[];
-  currentCar: CarDetailDto;
-  carImages:CarImage[]=[]
+  carDetail:CarDetailDto
+  carImages:CarImage[] = []
 
   constructor(
     private carService:CarService,
     private activatedRoute:ActivatedRoute,
-    private carImageService:CarImageService) { }
+    private carImageService:CarImageService
+   ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       if (params["carId"]) {
-
-        this.getCarDetailsByCarId(params["carId"]);
-        this.getCarImage(params["carId"]);
-
+        this.getCarDetailsByCarId(params["carId"])
+        this.carImageService.getCarImagesByCarId(params["carId"]).subscribe(response=>{
+          this.carImages = response.data
+        })
       } 
     })
   
@@ -37,32 +37,40 @@ export class CarDetailComponent implements OnInit {
   getCarDetailsByCarId(id:number)
   {
     this.carService.getCarDetailsByCarId(id).subscribe(response=>{
-      this.carDetails=response.data;
-      //this.carImages=response.data.carImage
+      this.carDetail=response.data[0]
     })
   }
 
+  // getCarImagesByCarId(carId:number){
+  //   this.carImageService.getCarImagesByCarId(carId).subscribe(response=>{
+  //     this.carImage=response.data
+  //   })     
+  // }
 
+  getFullImagePath(imagePath:string){
+    return "https://localhost:44313/Uploads/Images/"+imagePath;
+  }
 
-  getImage(carImage:CarDetailDto){
-    console.log(carImage);
-    return "https://localhost:44313/Uploads/Images/" +carImage.carImages[0].imagePath;
+  getActiveString(carImage:CarImage){
+    if(carImage===this.carImages[0]){
+      return "active"
+    }else{
+      return ""
+    }
+  }
+
+  getImage(carImage:CarImage){
+    return "https://localhost:44313/Uploads/Images/" + carImage.imagePath;
   
   }
 
-getCarImage(carId:number){
-  this.carImageService.getCarImagesByCarId(carId).subscribe(response=>{
-    this.carImages=response.data
-  })
-// return  "https://localhost:44313/Uploads/Images/"+carImage.imagePath
-}
+// getCarImage(carId:number){
+//   this.carImageService.getCarImagesByCarId(carId).subscribe(response=>{
+//     this.carImages=response.data
+//   })
+// // return  "https://localhost:44313/Uploads/Images/"+carImage.imagePath
+// }
 
-  getCarImagesByCarId(carId:number){
-    this.carService.getCarImagesByCarId(carId).subscribe(response=>{
-      this.carImages=response.data
-    })     
-  }
-  
- 
+
 
 }

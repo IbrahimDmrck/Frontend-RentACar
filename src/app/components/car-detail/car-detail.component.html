@@ -1,30 +1,25 @@
 <div  class="container">
-  <div style="padding-top: 20px ;" class="row" *ngFor="let carDetail of carDetails">
-      <div style="padding-right: 20px;" class="col-8 ">
-          <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="true">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div  class="carousel-inner rounded-2">
-                <div  class="carousel-item active">
-                  <img  [src]="getImage(carDetail)" class="d-block w-100" alt="...">
-                </div>
-            
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+  <div style="padding-top: 20px ;" class="row">
+      <div style="padding-right: 20px;" class="col-8 " >
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" *ngIf="carImages">
+          <div class="carousel-inner" >
+            <div class="carousel-item {{getActiveString(carImage)}}" *ngFor="let carImage of carImages" >
+              <img [src]="getImage(carImage)"  class="d-block w-100" alt="...">
             </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
          
       </div>
-      <div style="background-color: rgb(245, 245, 245);" class="col-4 ">
+      <div style="background-color: rgb(245, 245, 245);" class="col-4 " *ngIf="carDetail">
+          
           <hr>
           <label><b>Marka :</b></label>{{carDetail.brandName}}
           <hr>

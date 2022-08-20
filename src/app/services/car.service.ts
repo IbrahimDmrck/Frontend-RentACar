@@ -5,6 +5,7 @@ import { Car } from '../models/car';
 import { ListResponseModel } from '../models/listResponseModel';
 import { CarDetailDto } from '../models/carDetailDto';
 import { CarImage } from '../models/carImage';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 
 
