@@ -43,5 +43,4 @@ export class BrandComponent implements OnInit {
  this.currentBrand = null as any 
 
   }
-
 }

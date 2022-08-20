@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CarImageService } from 'src/app/car-image.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarDetailDto } from 'src/app/models/carDetailDto';
 import { CarImage } from 'src/app/models/carImage';
 import { CarService } from 'src/app/services/car.service';
@@ -12,7 +12,6 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
-
 
   carDetailDtos: CarDetailDto[] = [];
   carImage:CarImage[]=[];
@@ -77,6 +76,7 @@ getImage(carImage:CarDetailDto){
   setCurrentCar(carDetailDto: CarDetailDto) {
     this.currentCar = carDetailDto;
   }
+
 
 
 

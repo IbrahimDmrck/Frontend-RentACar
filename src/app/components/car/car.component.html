@@ -21,7 +21,7 @@
       
         <tr style="height:100px ;"  *ngFor="let carDetailDto of carDetailDtos" >
           <td  style="width: 190px;border-right: 2px solid white;" class="rounded-2" > <img  [src]="getImage(carDetailDto)" width="190px" height="100px" > </td> 
-            <td style="border-right: 2px solid white;" class="rounded-2"><button routerLink="/car-detail/{{carDetailDto.carId}}" class="btn btn-outline-secondary text-dark">{{carDetailDto.carName}}</button></td>
+            <td style="border-right: 2px solid white;" class="rounded-2"><button  routerLink="/car-detail/{{carDetailDto.carId}}" class="btn btn-outline-secondary text-dark">{{carDetailDto.carName}}</button></td>
             <td style="border-right: 2px solid white;" class="rounded-2">{{carDetailDto.brandName}}</td>
             <td style="border-right: 2px solid white;" class="rounded-2">{{carDetailDto.colorName}}</td>
             <td style="border-right: 2px solid white;" class="rounded-2">{{carDetailDto.dailyPrice}}.₺</td>
