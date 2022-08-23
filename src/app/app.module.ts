@@ -11,6 +11,13 @@ import { NaviComponent } from './components/navi/navi.component';
 import { CarComponent } from './components/car/car.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import { BrandSelectOptionFilterComponent } from './components/brand-select-option-filter/brand-select-option-filter.component';
+import { FormsModule } from '@angular/forms';
+import { ColorSelectOptionFilterComponent } from './components/color-select-option-filter/color-select-option-filter.component';
+import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
+import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
+import { CarFilterPipepePipe } from './pipes/car-filter-pipepe.pipe';
+
 
 
 
@@ -26,6 +33,12 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
     NaviComponent,
     CarComponent,
     CarDetailComponent,
+    BrandSelectOptionFilterComponent,
+    ColorSelectOptionFilterComponent,
+    BrandFilterPipePipe,
+    ColorFilterPipePipe,
+    CarFilterPipepePipe,
+
  
     
   
@@ -33,7 +46,8 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,10 +3,10 @@
 <div  class="container">
     <div style="padding-top: 20px ;" class="row">
         <div style="padding-right: 20px;" class="col-8 " >
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" *ngIf="carImages">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1800" *ngIf="carImages">
             <div class="carousel-inner" >
-              <div class="carousel-item {{getActiveString(carImage)}}" *ngFor="let carImage of carImages" >
-                <img [src]="getImage(carImage)"  class="d-block w-100" alt="..."  height="400px">
+              <div class="carousel-item {{getActiveString(carImage)}} " *ngFor="let carImage of carImages" >
+                <img [src]="getImage(carImage)"  class="d-block w-100 rounded-3 "  alt="..."  height="400px">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

@@ -4,10 +4,17 @@
     </div>
   </div>
 
+
 <ul class="list-group">
   <button (click)="reset()" [class]="getListAllBrands()" routerLink="/cars" class="btn btn-outline-primary bg-warning">Tüm Ürünleri Gör</button>
+
+  <div style="margin-top:5px;" class="mb-3">
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Marka Yazınız">
+  </div>
   <li  class="list-group-item"(click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}" 
-   [class]="getCurrentBrand(brand)" *ngFor="let brand of brands">   {{brand.brandName}}</li>
+  [class]="getCurrentBrand(brand)" *ngFor="let brand of brands |brandFilterPipe:filterText">   {{brand.brandName}}</li>
 </ul>
+
+
 
 
