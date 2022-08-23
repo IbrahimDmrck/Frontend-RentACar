@@ -1,24 +1,55 @@
-<div *ngIf="dataLoaded==false" class="text-center">
-    <div class="spinner-grow" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div>
 
-
-<table *ngIf="dataLoaded==true"  class="table table-hover text-center">
-    <thead class="bg-secondary">
-        <th>Müşteri</th>
-        <th>Araç-Markası</th>
-        <th>Kiralama-Tarihi</th>
-        <th>Araç-İade-Tarihi</th>
-    </thead>
-    <tbody class="bg-warning p-2 text-dark bg-opacity-50">
-        <tr *ngFor="let rentalDetail of rentalDetails">
-            <td>{{rentalDetail.customerName}}</td>
-            <td>{{rentalDetail.brandName}}</td>
-            <td>{{rentalDetail.rentDate}}</td>
-            <td>{{rentalDetail.returnDate}}</td>
-        </tr>
-    </tbody> 
-</table>
      
+  
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <table class="table table-bordered table-group-divider table-hover text-center">
+      <thead>
+        <th>fotoğraf</th>
+        <th>Marka</th>
+        <th>Araç Adı</th>
+        <th>Araç Tipi</th>
+        <th>Model Yılı</th>
+        <th>Günlük Ücret</th>
+        <th></th>
+      </thead>
+      <tbody class=" align-middle ">
+        <tr>
+          <td><img src="Ekran görüntüsü 2022-08-23 184509.png" width="350px"></td>
+          <td>Mercedes</td>
+          <td>AAAAAAAAa</td>
+          <td>Sedan</td>
+          <td>2020</td>
+          <td>550.₺</td>
+          <td>
+  
+            <label style="float: left;margin-top:10px;">Kiralama Başlangıcı :</label><input
+              style="float: right;width: 200px;" class="form-control" type="date" id="from"><br>
+            <label style="margin-top:20px;float: left;">Kiralama Bitişi :</label> <input
+              style="margin-top:10px;float: right;width: 200px;" class="form-control" type="date" id="to">
+            <p style="margin-top: 80px;"> <span id="output">...</span> Günlüğüne Kiralanacak!</p>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Ödenecek Tutar =</th>
+          <td style="width: 100px;">
+            <span id="okunandeger"></span>.₺
+          </td>
+  
+        </tr>
+      </tfoot>
+    </table>
+  
+    <script type="text/javascript" language="javascript">
+      $('#from, #to,#okunandeger').on('input', () => {
+        const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
+        const from = new Date($('#from').val());
+        const to = new Date($('#to').val());
+        const days = (to - from) / MILLISECONDS_PER_DAY;
+        const sumPrice = Number(days);
+        $('#output').html(days);
+        $('#okunandeger').html(sumPrice * 4);
+      });
+    </script>
+  

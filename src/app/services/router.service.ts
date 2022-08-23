@@ -7,8 +7,13 @@ import { Router } from '@angular/router';
 export class RouterService {
   CarDetailsByBrandIdPath = "cars/brand/";
   CarDetailsByColorIdPath="cars/color/";
+  HomePagePath = ""
 
   constructor(  private router:Router) { }
+
+  homePage() {
+    this.router.navigate([this.HomePagePath])
+  }
 
   carDetailsPageByBrandId(brandId: number) {
     if (brandId > 0) this.router.navigate([this.CarDetailsByBrandIdPath + brandId])
