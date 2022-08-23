@@ -8,12 +8,12 @@
 
 
 
-<ul class="list-group">
+<ul  class="list-group">
   <button (click)="reset()" [class]="getListAllColors()" routerLink="/cars" class="btn btn-outline-primary bg-warning">Tüm Renkleri Gör</button>
   <div style="margin-top:5px;" class="mb-3">
     <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Renk Yazınız">
   </div>
-  <li  class="list-group-item"(click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}" 
+  <li style="background-color: rgb(178, 206, 169,0.5);"  class="list-group-item"(click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}" 
    [class]="getCurrentColor(color)" *ngFor="let color of colors |colorFilterPipe:filterText">   {{color.colorName}}</li>
 </ul>
 

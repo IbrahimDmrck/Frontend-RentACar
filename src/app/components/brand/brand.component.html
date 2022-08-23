@@ -11,7 +11,7 @@
   <div style="margin-top:5px;" class="mb-3">
     <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Marka Yazınız">
   </div>
-  <li  class="list-group-item"(click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}" 
+  <li style="background-color:rgb(178, 206, 169,0.5) ;"  class="list-group-item"(click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}" 
   [class]="getCurrentBrand(brand)" *ngFor="let brand of brands |brandFilterPipe:filterText">   {{brand.brandName}}</li>
 </ul>
 
