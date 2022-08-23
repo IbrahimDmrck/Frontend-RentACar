@@ -4,6 +4,10 @@
     </div>
   </div>
 
+  <div style="margin-top:5px;" class="mb-3">
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Marka veya Araç Adı ile Arama Yapınız">
+  </div>
+
 
   <table *ngIf="dataLoaded==true" class="table table-hover text-center align-middle  ">
     <thead class="bg-info p-2 text-dark bg-opacity-25">
@@ -19,7 +23,7 @@
     </thead>
     <tbody class="bg-success p-2 text-dark bg-opacity-50">
       
-        <tr style="height:100px ;"  *ngFor="let carDetailDto of carDetailDtos" >
+        <tr style="height:100px ;"  *ngFor="let carDetailDto of carDetailDtos |carFilterPipepe:filterText" >
           <td  style="width: 190px;border-right: 2px solid white;" class="rounded-2" > <img  [src]="getImage(carDetailDto)" width="190px" height="100px" > </td> 
             <td style="border-right: 2px solid white;" class="rounded-2"><button  routerLink="/car-detail/{{carDetailDto.carId}}" class="btn btn-outline-secondary text-dark">{{carDetailDto.carName}}</button></td>
             <td style="border-right: 2px solid white;" class="rounded-2">{{carDetailDto.brandName}}</td>

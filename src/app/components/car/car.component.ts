@@ -16,6 +16,7 @@ export class CarComponent implements OnInit {
   carDetailDtos: CarDetailDto[] = [];
   carImage:CarImage[]=[];
   currentCar: CarDetailDto;
+  filterText=""
   dataLoaded = false;
 
   constructor(
